@@ -29,7 +29,6 @@ int main() {
     string myString ="isabelle";
     cout << myString[3]; //this will output b
     // we can use this technique to edit characters in a string
-
     return 0;
 }   
 
