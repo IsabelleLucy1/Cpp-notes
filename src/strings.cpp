@@ -23,7 +23,6 @@ int main() {
     string txt = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     cout << "The length of the txt string is: " << txt.length(); 
     //this returns the length of string
-
     //HOW TO ACCESS CHARACTERS IN A STRING
     //You can use the [] like an array to access a character
     string myString ="isabelle";
