@@ -54,6 +54,76 @@ int main(){
         cout << letters[i][j] << "\n";
         }
     }
+    //-----------------Structures-----------------------------------------
+    //structures are was to group several related variables into one place
+    //each varaible is known as a member of the structure
+    //unlike an array these can contain many differemnt data types
+
+    struct{
+        int myNum;
+        string myString;
+
+    } myStructure; //this is the variable that we can store them in
+
+    // Assign values to members of myStructure
+    myStructure.myNum = 1;
+    myStructure.myString = "Hello World!";
+
+    // Print members of myStructure
+    cout << myStructure.myNum << "\n";
+    cout << myStructure.myString << "\n";
+
+    //Named Structures
+    struct car {  // This structure is now named "car"
+    string brand;
+    string model;
+    int year;
+    };
+    //car structure named car 1
+    car myCar1;
+    myCar1.brand = "BMW";
+    myCar1.model = "X5";
+    myCar1.year = 1999;
+    //car structure  named car2
+    car myCar2;
+    myCar2.brand = "Ford";
+    myCar2.model = "Mustang";
+    myCar2.year = 1969;
+ 
+    // Print the structure members
+    cout << myCar1.brand << " " << myCar1.model << " " << myCar1.year << "\n";
+    cout << myCar2.brand << " " << myCar2.model << " " << myCar2.year << "\n";
+ //---------------------------ENUM-------------------
+ //an enum is a special type that represents a group of constant variables
+    enum Level{
+        LOW,
+        MEDIUM,
+        HIGH
+    };
+
+    //to acess we must create a variable for it
+    enum Level myLevel = MEDIUM;//if you print this it will store as 1
+
+    //You can also change the value that gets output instead of 0,1,2
+    //just type LOW = 25, and it will output 25 instead
+//it can also be used in a case statement 
+
+    enum Level myVar = MEDIUM;
+
+    switch (myVar) {
+        case 1:
+            cout << "Low Level";
+            break;
+        case 2:
+            cout << "Medium level";
+            break;
+        case 3:
+            cout << "High level";
+            break;
+  }
+ 
+
+ 
 
 
 
