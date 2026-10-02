@@ -146,7 +146,7 @@ int main(){
     cout << *ptr << endl; //this output the value of the pointer (burger)
 
     //You can also edit the value of a pointer
-    *ptr = "Icecream"
+    *ptr = "Icecream";
 //this will also change the original value as well
  
 
