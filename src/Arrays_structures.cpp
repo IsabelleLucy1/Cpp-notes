@@ -120,7 +120,34 @@ int main(){
         case 3:
             cout << "High level";
             break;
-  }
+    }
+    //--------------------REFERENCES---------------------------------------
+    // A reference is a varaible that is an alias for an existin varaible
+    //it is created using the & operator
+    string food ="Pizza";
+    string &meal =food;
+    //now food and meal both refer to the same value
+
+    //if you change the value of the reference variable the original will also be changed
+    //this is because they refer to the same location memory
+    meal = "Burger";
+    cout << food << endl;
+
+    //The memory address is assigned to the variable when you use a reference value
+    //to access the name of the memory address we can use the & operator
+    cout << &food;
+
+    //---------------POINTERS--------------------------------------
+    // a pointer is a variable that store the memory address as its value
+    string* ptr = &food; // a pointer varaible with the name ptr that stores the address
+    cout << ptr << endl;
+
+    //To dereference a pointer we use the * operator like so
+    cout << *ptr << endl; //this output the value of the pointer (burger)
+
+    //You can also edit the value of a pointer
+    *ptr = "Icecream"
+//this will also change the original value as well
  
 
  
