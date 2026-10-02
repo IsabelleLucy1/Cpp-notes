@@ -85,6 +85,51 @@ int plusFunc(int x, int y) {
 double plusFunc(double x, double y) {
   return x + y;
 }
+
+//------------SCOPES-------------------------------------------------------
+ //inside the function these are local variables that only exists inside the function
+ //if you try to use this outside this will cause an error
+ //A GLOBAL variable belongs to the global scope
+ //if you create a variable outside the function it can be used inside and outside the function
+
+
+ //When variables are reassigned in a local function the value globally stays the same outside the function
+
+
+ //----------------------RECURSION------------------------------------
+ //Recursion is when a function calls istelf
+ //this technique is used to break co,mplicated problems down
+
+
+ //EXAMPLE
+ int sum(int k) {
+  if (k > 0) {
+    return k + sum(k - 1);
+  } else {
+    return 0;
+  }
+}//this function can be used to add a range of numbers factorial
+//EXAMPLE 2 
+//Countown function
+void countdown(int n) {
+  if (n > 0) {
+    cout << n << " ";
+    countdown(n - 1);
+  }
+}
+
+//-----------------------LAMBDA FUNCTIONS------------------------------------------
+//A lambda function is a small anoymous function you can write directly in your code
+//its useful for quick functions wuthout naming and declaring it
+
+//You can also use a pass a lambda function as an argument
+#include <functional>
+//function that takes another function as a paramter
+void myVoid(function<void()> func){
+    func();
+    func();
+}
+
 int main(){
     Car myCar = {"Toyota", 2020};
     myFunction(); //calls and executes the function
@@ -94,6 +139,18 @@ int main(){
     multipleFunction("Johm" ,20);
     myReturning(10);
     myReturning2(5, 2);
+//the captures can be used for loops [i]
+//You can use the brackets to give lambda to acess to variables outside of it
+    //lambda functionm example
+    auto message = []( ){
+        cout <<"Hello World"<< endl;
+    };
+    //can also be used with paramaters just like a regular function
+    auto add = [](int a, int b){
+        return a + b;
+    };
 
+    cout << add(3,4); //outputs 7
+    message();
     return 0;
 }
