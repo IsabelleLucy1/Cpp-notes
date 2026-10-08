@@ -66,6 +66,52 @@ class accessExample{
 
 };
 
+
+//--------------------ENCAPSULATION-------------------------------------
+
+//Encapsulation is to make sure sensitive data is hidden from users
+//we will declare the attributes as private
+//but if we want to modify the valye you can provide get and set methods
+
+class Employee {
+    private:
+    //Private attribute
+    int salary;
+
+    public:
+    //sets the salary
+    void setSalary (int s) {
+        salary = s;
+
+    }//gets the salary
+    int getSalary(){
+        return salary;
+    }
+};
+
+//--------------------------INHERITANCE --------------------------------------
+//Inheritnace allows a class to resue attributes from another
+//it helps write cleaner and more efficient code
+//avoid duplication
+class Vehicle {
+    public:
+        string brand = "Ford";
+        void honk() {
+            cout << "Tuut, tuut! \n" ;
+    }
+};
+
+// Derived class
+class VehicleCar : public Vehicle {
+  public:
+    string model = "Mustang";
+};// class has same attributes but it also has a new one model
+
+//we can also have multi level inheritance
+//such as a grandchild which inherits attributes of the child
+
+
+
 int main() {
     //------------------CREATING OBJECTS-----------------------
     Myclass myObj;
@@ -92,5 +138,12 @@ int main() {
 //We can define cpnstructors outside of a class using the ::
 //but is must be declared in the class function
 
+
+//-----------------ENCAPSULATION EXAMPLE -----------------------------
+    Employee Obj;
+    Obj.setSalary(50000);//assigns the value
+    cout << Obj.getSalary();//prints it
+    //keeps the salary private
+    //It is good practice for security and control of data
     return 0;
 }
