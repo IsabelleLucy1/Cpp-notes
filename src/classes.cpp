@@ -25,6 +25,47 @@ public: // the access specifier
 // In large programs you may want to define the method later
 // We use the :: to specify the scope of the function
 //void Myclass::myMethod()//define it like nornaml
+
+
+
+//----------------CONSTRUCTORS-------------------------
+class Car {
+    public:
+        string brand;
+        string model;
+        int year;
+
+        Car() {//without paramters
+            //this one has default values
+            //other has custom values
+            brand = "unkown";
+            model = "unknown";
+            year = 0;
+        }
+        //constructors can also take paramaeters which can be useful for setting values
+        //sets multiple values at once
+        Car(string x, string y, int z){
+            brand = x;
+            model = y;
+            year = z;
+        }
+};
+
+//USING ACCESS SPECIFIERS
+//the public keyword means it can be accessed and modified outside the code
+//by default members are made private
+
+class accessExample{
+    public://anyone can use it
+        int x;
+    private://cannot be accessed from outside the class
+        int y;
+    protected://members cannot be accessed from outside the class
+    //but can be inherited class and accessed.
+        int z;
+
+};
+
 int main() {
     //------------------CREATING OBJECTS-----------------------
     Myclass myObj;
@@ -42,6 +83,14 @@ int main() {
     myObj2.mystring = "Text again";
     std::cout << myObj2.myNum << std::endl;
     std::cout << myObj2.mystring << std::endl;
+    //EXAMPLE OF CONSTRUCTOR USE
+
+    Car carObj3("BMW", "X5", 1999);
+    cout << carObj3.brand << endl;
+    cout << carObj3.model << endl;
+    cout << carObj3.year << endl;
+//We can define cpnstructors outside of a class using the ::
+//but is must be declared in the class function
 
     return 0;
 }
