@@ -1,6 +1,17 @@
 //This is notes on classes
 #include <iostream>
 using namespace std;
+//file handling
+#include <fstream>
+//in this library there are 3 functions
+//ofstream - creates and writes to files
+//ifstream - reads from files
+//fstream - combination of ofstream and ifstream creates, reads and write to files
+
+
+
+
+
 
 //A class defines what an object should look like
 //and an object is created based on that class
@@ -248,8 +259,19 @@ int main() {
     score.display();
 
 
+    //--------------------FILE  HANDLING EXAMPLE-----------------------------
+    ofstream MyFile ("Filename.txt");
+    //creates and opens the file
+    //writes to the file
+    MyFile << "Files can be tricky but this is fun";
+    //close the file
+    MyFile.close();
+    // Use a while loop together with the getline() function to read the file line by line
+    //while (getline (MyReadFile, myText)) {
+  // Output the text from the file
+    //cout << myText;
 
 
-    
+
     return 0;
 }
