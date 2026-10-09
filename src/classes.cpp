@@ -110,6 +110,80 @@ class VehicleCar : public Vehicle {
 //we can also have multi level inheritance
 //such as a grandchild which inherits attributes of the child
 
+//------------------------POLYMORPHISM------------------------------------
+
+//means many forms when we have many classes that are related by inheritance
+//Polymorphism uses those methods to perform different tasks. This allows us to perform a single action 
+//in different ways
+
+//base class
+class Animal {
+    public:
+        void animalSound(){
+            cout << "The animal makes a sound" << endl;
+    }
+};
+
+//derived class
+class Pig : public Animal {
+    public:
+    void animalSound(){
+        cout << "The pig says: wee wee " << endl;
+    }
+};
+
+class Dog : public Animal{
+    public: 
+    void animalSound(){
+        cout << "The dog says: bow bow"<< endl;
+    }
+};
+
+//------------------TEMPLATES---------------------------------------
+//tenplates let you write a function or class that works with different data types
+//They help avoid repeating code and make programs more flexible
+
+template <typename T>
+T add ( T a, T b){
+    return a + b;
+}//T is a placeholder for a data type like int or a float
+
+//it can be used on classes if you want to display any data type
+template <typename T>
+class Box {
+  public:
+    T value;
+    Box(T v) {
+      value = v;
+    }
+    void show() {
+      cout << "Value: " << value << "\n";
+    }
+};
+//templates avoid repeating logic for different data types
+//write cleaner code and support generic programming
+
+//another example store two values of different data types
+// the placeholder must be 2 different values
+template <typename T1, typename T2>
+class Pair {
+  public:
+    T1 first;
+    T2 second;
+
+    Pair(T1 a, T2 b) {
+      first = a;
+      second = b;
+    }
+
+    void display() {
+      cout << "First: " << first << ", Second: " << second << "\n";
+    }
+};
+
+
+
+
 
 
 int main() {
@@ -145,5 +219,37 @@ int main() {
     cout << Obj.getSalary();//prints it
     //keeps the salary private
     //It is good practice for security and control of data
+
+//------------POLYMORPHISM EXAMPLE-----------------------------------------
+    Animal myAnimal;
+    Pig myPig;
+    Dog myDog;
+
+    myAnimal.animalSound();
+    myPig.animalSound();
+    myDog.animalSound();
+
+//----------------TEMPLATES EXAMPLES---------------------------------------
+    cout << add<int>(5, 3) << "\n";
+    cout << add<double>(2.5, 1.5) << "\n";
+//This stores a value then displays it
+    Box<int> intBox(50);
+    Box<string> strBox("Hello");
+//you must define the dataa type for the template in <> 
+    intBox.show();
+    strBox.show();
+//when you have template data types
+// you must specifify both of them
+    Pair<string, int> person("John", 30);
+    Pair<int, double> score(51, 9.5);
+    //this stores 2 values the data types are declared with , 
+    //then displayed after
+    person.display();
+    score.display();
+
+
+
+
+    
     return 0;
 }
