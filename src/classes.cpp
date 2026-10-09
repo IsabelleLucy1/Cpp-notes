@@ -8,8 +8,8 @@ using namespace std;
 //ifstream - reads from files
 //fstream - combination of ofstream and ifstream creates, reads and write to files
 
-
-
+//Date and time
+#include <ctime> //use this to allow us to work with date and time library
 
 
 
@@ -195,8 +195,6 @@ class Pair {
 
 
 
-
-
 int main() {
     //------------------CREATING OBJECTS-----------------------
     Myclass myObj;
@@ -271,7 +269,61 @@ int main() {
   // Output the text from the file
     //cout << myText;
 
+    //--------------TIME EXAMPLE-------------------------------------------------
+    //get the timestamp for the current date and time
+    time_t timestamp;
+    time(&timestamp);
+//time stamps represent the moment in time a single number
+//date time structures represents components of time
+//tm_sec - The seconds within a minute
+//tm_min - The minutes within an hour
+//tm_hour - The hour within a day (from 0 to 23)
+//tm_mday - The day of the month
+//tm_mon - The month (from 0 to 11 starting with January)
+//tm_year - The number of years since 1900
+//tm_wday - The weekday (from 0 to 6 starting with Sunday)
+//tm_yday - The day of the year (from 0 to 365 with 0 being January 1)
+    //dispalys the date and time
 
+    //displays time data 
+    
+    struct tm datetime = *localtime(&timestamp);
 
-    return 0;
+    char output[50];
+
+    strftime(output, 50, "%B %e, %Y", &datetime);
+    cout << output << "\n";
+
+    strftime(output, 50, "%I:%M:%S %p", &datetime);
+    cout << output << "\n";
+
+    strftime(output, 50, "%m/%d/%y", &datetime);
+    cout << output << "\n";
+
+    strftime(output, 50, "%a %b %e %H:%M:%S %Y", &datetime);
+    cout << output << "\n";
+    cout << ctime(&timestamp);
+
+    // Create the datetime structure and use mktime to correct mistakes
+    struct tm datetime1;
+    datetime1.tm_year = 2022 - 1900; // Number of years since 1900
+    datetime1.tm_mon = 0; // 0 is January
+    datetime1.tm_mday = 32;
+    datetime1.tm_hour = 0; datetime.tm_min = 0; datetime.tm_sec = 0;
+    datetime1.tm_isdst = -1;
+    mktime(&datetime1);
+
+    cout << asctime(&datetime1);
+
+    //we can also measure how long it takes for the program to run
+
+    clock_t before = clock();
+    int k = 0;
+    for(int i = 0; i < 100000; i++) {
+  k += i;
+}
+        clock_t duration = clock() - before;
+        cout << "Duration: " << (float)duration / CLOCKS_PER_SEC << " seconds";
+        
+    return 0;   
 }
